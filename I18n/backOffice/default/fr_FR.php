@@ -36,6 +36,7 @@ return array(
     'Price for:' => 'Prix pour :',
     'Prices definition' => 'Définition des prix',
     'Promo' => 'Promo',
+    'Promotion codes' => 'Codes promotion',
     'Purchase price' => 'Prix d\'achat',
     'Purchase price (w/o taxes)' => 'Prix d\'achat HT',
     'Save' => 'Enregistrer',
