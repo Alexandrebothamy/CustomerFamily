@@ -68,6 +68,29 @@ CREATE TABLE `customer_family_price`
 ) ENGINE=InnoDB;
 
 -- ---------------------------------------------------------------------
+-- customer_family_code
+-- ---------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `customer_family_code`;
+
+CREATE TABLE `customer_family_code`
+(
+    `customer_family_id` INTEGER NOT NULL,
+    `promo_code` TINYINT DEFAULT 0 NOT NULL,
+    `use_equation_product_selling` TINYINT DEFAULT 0 NOT NULL,
+    `amount_added_before` DECIMAL(16,6) DEFAULT 0,
+    `amount_added_after` DECIMAL(16,6) DEFAULT 0,
+    `multiplication_coefficient` DECIMAL(16,6) DEFAULT 1,
+    `shipping_offered` TINYINT DEFAULT 1 NOT NULL,
+    PRIMARY KEY (`customer_family_id`,`promo_code`),
+    CONSTRAINT `fk_customer_family_id`
+        FOREIGN KEY (`customer_family_id`)
+        REFERENCES `customer_family` (`id`)
+        ON UPDATE RESTRICT
+        ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+-- ---------------------------------------------------------------------
 -- product_purchase_price
 -- ---------------------------------------------------------------------
 

@@ -86,6 +86,11 @@ class CustomerFamilyPriceTableMap extends TableMap
     const USE_EQUATION = 'customer_family_price.USE_EQUATION';
 
     /**
+     * the column name for the USE_EQUATION_PRODUCT_SELLING
+     */
+    const USE_EQUATION_PRODUCT_SELLING = 'customer_family_price.USE_EQUATION_PRODUCT_SELLING';
+
+    /**
      * the column name for the AMOUNT_ADDED_BEFORE field
      */
     const AMOUNT_ADDED_BEFORE = 'customer_family_price.AMOUNT_ADDED_BEFORE';
@@ -104,6 +109,12 @@ class CustomerFamilyPriceTableMap extends TableMap
      * the column name for the IS_TAXED field
      */
     const IS_TAXED = 'customer_family_price.IS_TAXED';
+
+    /**
+     * the column name for the SHIPPING_OFFERED field
+     */
+
+    const SHIPPING_OFFERED = 'customer_family_price.SHIPPING_OFFERED';
 
     /**
      * The default string format for model objects of the related table
@@ -159,10 +170,12 @@ class CustomerFamilyPriceTableMap extends TableMap
         $this->addForeignPrimaryKey('CUSTOMER_FAMILY_ID', 'CustomerFamilyId', 'INTEGER' , 'customer_family', 'ID', true, null, null);
         $this->addPrimaryKey('PROMO', 'Promo', 'TINYINT', true, null, 0);
         $this->addColumn('USE_EQUATION', 'UseEquation', 'TINYINT', true, null, 0);
+        $this->addColumn('USE_EQUATION_PRODUCT_SELLING', 'UseEquationProductSelling', 'TINYINT', true, null, 0);
         $this->addColumn('AMOUNT_ADDED_BEFORE', 'AmountAddedBefore', 'DECIMAL', false, 16, 0);
         $this->addColumn('AMOUNT_ADDED_AFTER', 'AmountAddedAfter', 'DECIMAL', false, 16, 0);
         $this->addColumn('MULTIPLICATION_COEFFICIENT', 'MultiplicationCoefficient', 'DECIMAL', false, 16, 1);
         $this->addColumn('IS_TAXED', 'IsTaxed', 'TINYINT', true, null, 1);
+        $this->addColumn('SHIPPING_OFFERED', 'ShippingOffered', 'TINYINT', true, null, 1);
     } // initialize()
 
     /**

@@ -44,6 +44,19 @@
 		<column name="is_taxed" type="TINYINT" required="true" defaultValue="1"/>
 	</table>
 
+	<table name="customer_family_code">
+		<column name="customer_family_id" primaryKey="true" required="true" type="INTEGER" />
+		<foreign-key foreignTable="customer_family" name="fk_customer_family_id" onDelete="CASCADE" onUpdate="RESTRICT">
+			<reference foreign="id" local="customer_family_id" />
+		</foreign-key>
+		<column name="promo_code" primaryKey="true" type="TINYINT" required="true" defaultValue="0"/>
+		<column name="use_equation_product_selling" type="TINYINT" required="true" defaultValue="0"/>
+		<column name="amount_added_before" type="DECIMAL" size="16" scale="6" defaultValue="0" />
+		<column name="amount_added_after" type="DECIMAL" size="16" scale="6" defaultValue="0" />
+		<column name="multiplication_coefficient" type="DECIMAL" size="16" scale="6" defaultValue="1" />
+		<column name="shipping_offered" type="TINYINT" required="true" defaultValue="1"/>
+	</table>
+
 	<table name="product_purchase_price">
 		<column name="product_sale_elements_id" primaryKey="true" required="true" type="INTEGER" />
 		<foreign-key foreignTable="product_sale_elements" name="fk_product_sale_elements_id" onDelete="CASCADE" onUpdate="RESTRICT">

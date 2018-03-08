@@ -396,16 +396,16 @@
 
                                 <!-- Standard equation -->
                                 <tr>
-                                    {form name='customer_family_price_update'}
-                                    <form action="{url path='/admin/module/CustomerFamily/update-price-calculation'}" method="post">
+                                    {form name='customer_family_code_update'}
+                                    <form action="{url path='/admin/module/CustomerFamily/update-code-calculation'}" method="post">
 
                                         {form_hidden_fields form=$form}
 
-                                        {form_field form=$form field='promo'}
+                                        {form_field form=$form field='promo_code'}
                                         <input type="hidden" name="{$name}" value="0">
                                         {/form_field}
 
-                                        {loop type='customer_family_price' name='customer_family_price_loop' promo=0 customer_family_id=$CUSTOMER_FAMILY_ID}
+                                        {loop type='customer_family_code' name='customer_family_code_loop' promo=0 customer_family_id=$CUSTOMER_FAMILY_ID}
                                         {assign var='amount_added_before' value=$AMOUNT_ADDED_BEFORE}
                                         {assign var='coefficient' value=$COEFFICIENT}
                                         {assign var='amount_added_after' value=$AMOUNT_ADDED_AFTER}
@@ -421,7 +421,7 @@
                                              {/form_field}
                                         </td>
                                         <td>
-                                            {form_field form=$form field="use_equation"}
+                                            {form_field form=$form field="use_equation_product_selling"}
                                             <input type="checkbox" name="{$name}" {if $use_equation_product_selling}checked{/if}>
                                             {/form_field}
                                         </td>
@@ -462,8 +462,8 @@
 
                                 <!-- Promo price equation -->
                                 <tr>
-                                    {form name='customer_family_price_update'}
-                                    <form action="{url path='/admin/module/CustomerFamily/update-price-calculation'}" method="post">
+                                    {form name='customer_family_code_update'}
+                                    <form action="{url path='/admin/module/CustomerFamily/update-code-calculation'}" method="post">
 
                                         {form_hidden_fields form=$form}
 
@@ -471,7 +471,7 @@
                                         <input type="hidden" name="{$name}" value="1">
                                         {/form_field}
 
-                                        {loop type='customer_family_price' name='customer_family_price_promo_loop' promo=1 customer_family_id=$CUSTOMER_FAMILY_ID}
+                                        {loop type='customer_family_code' name='customer_family_code_promo_loop' promo=1 customer_family_id=$CUSTOMER_FAMILY_ID}
                                         {assign var='amount_added_before' value=$AMOUNT_ADDED_BEFORE}
                                         {assign var='coefficient' value=$COEFFICIENT}
                                         {assign var='amount_added_after' value=$AMOUNT_ADDED_AFTER}

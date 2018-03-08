@@ -36,4 +36,12 @@
         <default key="_controller">CustomerFamily\Controller\Admin\CustomerFamilyPriceController::calculatePricesAction</default>
     </route>
 
+    <!-- Codes management -->
+    <route id="customer.family.code.update" path="/admin/module/CustomerFamily/update-code-calculation" methods="post">
+        <default key="_controller">CustomerFamily\Controller\Admin\CustomerFamilyCodeController::updateAction</default>
+    </route>
+
+    <route id="customer.family.code.calculate" path="/admin/module/CustomerFamily/calculate-all-codes" methods="get">
+        <default key="_controller">CustomerFamily\Controller\Admin\CustomerFamilyCodeController::calculateCodesAction</default>
+    </route>
 </routes>

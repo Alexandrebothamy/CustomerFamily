@@ -5,15 +5,15 @@ namespace CustomerFamily\Form;
 use Thelia\Form\BaseForm;
 
 /**
- * Class CustomerFamilyPriceForm
+ * Class CustomerFamilyCodeForm
  * @package CustomerFamily\Form
- * @author Etienne Perriere <eperriere@openstudio.fr>
+ * @author Alexandre BOTHAMY
  */
-class CustomerFamilyPriceForm extends BaseForm
+class CustomerFamilyCodeForm extends BaseForm
 {
     public function getName()
     {
-        return 'customer_family_price_update';
+        return 'customer_family_code_update';
     }
 
     protected function buildForm()
@@ -24,11 +24,12 @@ class CustomerFamilyPriceForm extends BaseForm
                 'integer'
             )
             ->add(
-                'promo',
+                'promo_code',
                 'integer'
             )
+
             ->add(
-                'use_equation',
+                'use_equation_product_selling',
                 'checkbox',
                 []
             )
@@ -57,7 +58,7 @@ class CustomerFamilyPriceForm extends BaseForm
                 ]
             )
             ->add(
-                'is_taxed',
+                'shipping_offered',
                 'checkbox',
                 []
             )
