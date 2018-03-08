@@ -41,9 +41,12 @@ return array(
     'Purchase price (w/o taxes)' => 'Prix d\'achat HT',
     'Save' => 'Enregistrer',
     'Select customer family' => 'Sélectionnez le type de compte',
+    'Shipping offered' => 'Frais de port offert',
     'Show taxes' => 'Afficher le prix taxé',
     'Title' => 'Nom',
     'Update' => 'Mettre à jour',
     'Use equation' => 'Utiliser l\'équation',
+    'Use equation product selling'  => 'Utiliser l\'équation produit de vente',
+    'Warning: this page is under construction' => 'Attention: cette page est en cours de construction',
     'Yes' => 'Oui',
 );

@@ -33,6 +33,11 @@ class CustomerFamilyPriceForm extends BaseForm
                 []
             )
             ->add(
+                'use_equation_product_selling',
+                'checkbox',
+                []
+            )
+            ->add(
                 'amount_added_before',
                 'number',
                 [
@@ -58,6 +63,11 @@ class CustomerFamilyPriceForm extends BaseForm
             )
             ->add(
                 'is_taxed',
+                'checkbox',
+                []
+            )
+            ->add(
+                'shipping_offered',
                 'checkbox',
                 []
             )

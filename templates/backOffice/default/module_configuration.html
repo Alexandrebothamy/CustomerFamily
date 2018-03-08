@@ -199,7 +199,7 @@
                 </div>
 
                 <!-- Prices definition tab -->
-                <div id="prices_definition" class="tab-pane form-container">
+                    <div id="prices_definition" class="tab-pane form-container">
                     <br>
 
                     <!-- Configure prices equation -->
@@ -374,13 +374,154 @@
                                 {intl l="Warning: this page is under construction" d='customerfamily.bo.default'}
                             </h4>
                             <br>
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>{intl l='Customer family' d='customerfamily.bo.default'}</th>
+                                    <th>{intl l='Use equation product selling' d='customerfamily.bo.default'}</th>
+                                    <th>{intl l='Fix amount 1' d='customerfamily.bo.default'}</th>
+                                    <th>{intl l='Factor' d='customerfamily.bo.default'}</th>
+                                    <th>{intl l='Fix amount 2' d='customerfamily.bo.default'}</th>
+                                    <th>{intl l='Shipping offered' d='customerfamily.bo.default'}</th>
+                                    <th>{intl l='Save' d='customerfamily.bo.default'}</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {loop type='customer_family' name='customerfamily_loop'}
+                                    {assign var='amount_added_before' value=0}
+                                    {assign var='coefficient' value=1}
+                                    {assign var='amount_added_after' value=0}
+                                    {assign var='shipping_offered' value=1}
+                                    {assign var='use_equation_product_selling' value=0}
 
-                        </div>
-                    </div>
+                                <!-- Standard equation -->
+                                <tr>
+                                    {form name='customer_family_price_update'}
+                                    <form action="{url path='/admin/module/CustomerFamily/update-price-calculation'}" method="post">
+
+                                        {form_hidden_fields form=$form}
+
+                                        {form_field form=$form field='promo'}
+                                        <input type="hidden" name="{$name}" value="0">
+                                        {/form_field}
+
+                                        {loop type='customer_family_price' name='customer_family_price_loop' promo=0 customer_family_id=$CUSTOMER_FAMILY_ID}
+                                        {assign var='amount_added_before' value=$AMOUNT_ADDED_BEFORE}
+                                        {assign var='coefficient' value=$COEFFICIENT}
+                                        {assign var='amount_added_after' value=$AMOUNT_ADDED_AFTER}
+                                        {assign var='shipping_offered' value=$SHIPPING_OFFERED}
+                                        {assign var='use_equation_product_selling' value=$USE_EQUATION_PRODUCT_SELLING}
+                                         {/loop}
+
+                                         <td>
+
+                                             {$TITLE_CUSTOMER_FAMILY}
+                                             {form_field form=$form field="customer_family_id"}
+                                             <input type="hidden" name="{$name}" value="{$CUSTOMER_FAMILY_ID}">
+                                             {/form_field}
+                                        </td>
+                                        <td>
+                                            {form_field form=$form field="use_equation"}
+                                            <input type="checkbox" name="{$name}" {if $use_equation_product_selling}checked{/if}>
+                                            {/form_field}
+                                        </td>
+                                        <td>
+                                            {form_field form=$form field="amount_added_before"}
+                                            <input type="number" name="{$name}" maxlength="16" step="any" value="{$amount_added_before}" class="form-control">
+                                            {/form_field}
+                                        </td>
+                                        <td>
+                                            {form_field form=$form field="coefficient"}
+                                            <input type="number" name="{$name}" maxlength="16" step="any" value="{$coefficient}" class="form-control">
+                                            {/form_field}
+                                        </td>
+                                        <td>
+                                           {form_field form=$form field="amount_added_after"}
+                                            <input type="number" name="{$name}" maxlength="16" step="any" value="{$amount_added_after}" class="form-control">
+                                            {/form_field}
+                                        </td>
+                                        <td>
+                                            {form_field form=$form field="shipping_offered"}
+                                            <input type="checkbox" name="{$name}" {if $shipping_offered}checked{/if}>
+                                            {/form_field}
+                                        </td>
+                                        <td>
+                                            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+                                        </td>
+                                    </form>
+                                    {/form}
+                                </tr>
+
+
+                                {assign var='amount_added_before' value=0}
+                                {assign var='coefficient' value=1}
+                                {assign var='amount_added_after' value=0}
+                                {assign var='shipping_offered' value=1}
+                                {assign var='use_equation_product_selling' value=0}
+
+
+                                <!-- Promo price equation -->
+                                <tr>
+                                    {form name='customer_family_price_update'}
+                                    <form action="{url path='/admin/module/CustomerFamily/update-price-calculation'}" method="post">
+
+                                        {form_hidden_fields form=$form}
+
+                                        {form_field form=$form field='promo'}
+                                        <input type="hidden" name="{$name}" value="1">
+                                        {/form_field}
+
+                                        {loop type='customer_family_price' name='customer_family_price_promo_loop' promo=1 customer_family_id=$CUSTOMER_FAMILY_ID}
+                                        {assign var='amount_added_before' value=$AMOUNT_ADDED_BEFORE}
+                                        {assign var='coefficient' value=$COEFFICIENT}
+                                        {assign var='amount_added_after' value=$AMOUNT_ADDED_AFTER}
+                                        {assign var='shipping_offered' value=$SHIPPING_OFFERED}
+                                        {assign var='use_equation_product_selling' value=$USE_EQUATION_PRODUCT_SELLING}
+                                        {/loop}
+
+                                        <td>
+                                            {$TITLE_CUSTOMER_FAMILY} - {intl l='Promo' d='customerfamily.bo.default'}
+                                            {form_field form=$form field="customer_family_id"}
+                                            <input type="hidden" name="{$name}" value="{$CUSTOMER_FAMILY_ID}">
+                                            {/form_field}
+                                        </td>
+                                        <td>
+                                            {form_field form=$form field="use_equation_product_selling"}
+                                            <input type="checkbox" name="{$name}" {if $use_equation_product_selling}checked{/if}>
+                                            {/form_field}
+                                        </td>
+                                        <td>
+                                            {form_field form=$form field="amount_added_before"}
+                                            <input type="number" name="{$name}" maxlength="16" step="any" value="{$amount_added_before}" class="form-control">
+                                            {/form_field}
+                                        </td>
+                                        <td>
+                                            {form_field form=$form field="coefficient"}
+                                            <input type="number" name="{$name}" maxlength="16" step="any" value="{$coefficient}" class="form-control">
+                                            {/form_field}
+                                        </td>
+                                        <td>
+                                            {form_field form=$form field="amount_added_after"}
+                                            <input type="number" name="{$name}" maxlength="16" step="any" value="{$amount_added_after}" class="form-control">
+                                            {/form_field}
+                                        </td>
+                                        <td>
+                                            {form_field form=$form field="shipping_offered"}
+                                            <input type="checkbox" name="{$name}" {if $shipping_offered}checked{/if}>
+                                            {/form_field}
+                                        </td>
+                                        <td>
+                                            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+                                        </td>
+                                    </form>
+                                    {/form}
+                                </tr>
+                                {/loop}
+                                </tbody>
+                            </table>
             </div>
         </div>
     </div>
-</div>
 
 <div class="modal fade" id="update-default-family-failed" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
