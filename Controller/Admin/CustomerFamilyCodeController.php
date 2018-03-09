@@ -3,19 +3,17 @@
 namespace CustomerFamily\Controller\Admin;
 
 use CustomerFamily\CustomerFamily;
-use CustomerFamily\Model\CustomerFamilyPrice;
-use CustomerFamily\Model\CustomerFamilyPriceQuery;
+use CustomerFamily\Model\CustomerFamilyCode;
+use CustomerFamily\Model\CustomerFamilyCodeQuery;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Thelia\Controller\Admin\BaseAdminController;
 use Thelia\Core\Security\AccessManager;
 use Thelia\Core\Security\Resource\AdminResources;
 use Thelia\Form\Exception\FormValidationException;
 use Thelia\Tools\URL;
-
 /**
  * Class CustomerFamilyCodeController
  * @package CustomerFamily\ Controller
- * @author Alexandre BOTHAMY
  */
 class CustomerFamilyCodeController extends BaseAdminController
 {
@@ -35,14 +33,14 @@ class CustomerFamilyCodeController extends BaseAdminController
             return $response;
         }
 
-        $form = $this->createForm('customer_family_codee_update');
+        $form = $this->createForm('customer_family_code_update');
         $error = null;
         $ex = null;
 
         try {
             $vForm = $this->validateForm($form);
 
-            // If no entry exists for the given CustomerFamilyId & promo, create it
+            // If no entry exists for the given CustomerFamilyId & promo_code, create it
             if (null === $customerFamilyCode = CustomerFamilyCodeQuery::create()
                     ->findPk([$vForm->get('customer_family_id')->getData(), $vForm->get('promo_code')->getData()])) {
                 // Create new CustomerFamilyCode

@@ -2,8 +2,8 @@
 
 namespace CustomerFamily\Model\Map;
 
-use CustomerFamily\Model\CustomerFamilyPrice;
-use CustomerFamily\Model\CustomerFamilyPriceQuery;
+use CustomerFamily\Model\CustomerFamilyCode;
+use CustomerFamily\Model\CustomerFamilyCodeQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -26,14 +26,14 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class CustomerFamilyPriceTableMap extends TableMap
+class CustomerFamilyCodeTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = 'CustomerFamily.Model.Map.CustomerFamilyPriceTableMap';
+    const CLASS_NAME = 'CustomerFamily.Model.Map.CustomerFamilyCodeTableMap';
 
     /**
      * The default database name for this class
@@ -43,17 +43,17 @@ class CustomerFamilyPriceTableMap extends TableMap
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'customer_family_price';
+    const TABLE_NAME = 'customer_family_code';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\CustomerFamily\\Model\\CustomerFamilyPrice';
+    const OM_CLASS = '\\CustomerFamily\\Model\\CustomerFamilyCode';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'CustomerFamily.Model.CustomerFamilyPrice';
+    const CLASS_DEFAULT = 'CustomerFamily.Model.CustomerFamilyCode';
 
     /**
      * The total number of columns
@@ -73,37 +73,38 @@ class CustomerFamilyPriceTableMap extends TableMap
     /**
      * the column name for the CUSTOMER_FAMILY_ID field
      */
-    const CUSTOMER_FAMILY_ID = 'customer_family_price.CUSTOMER_FAMILY_ID';
+    const CUSTOMER_FAMILY_ID = 'customer_family_code.CUSTOMER_FAMILY_ID';
 
     /**
-     * the column name for the PROMO field
+     * the column name for the PROMO_CODE field
      */
-    const PROMO = 'customer_family_price.PROMO';
+    const PROMO_CODE = 'customer_family_code.PROMO_CODE';
 
     /**
-     * the column name for the USE_EQUATION field
+     * the column name for the USE_EQUATION_PRODUCT_SELLING field
      */
-    const USE_EQUATION = 'customer_family_price.USE_EQUATION';
+    const USE_EQUATION_PRODUCT_SELLING = 'customer_family_code.USE_EQUATION_PRODUCT_SELLING';
 
     /**
      * the column name for the AMOUNT_ADDED_BEFORE field
      */
-    const AMOUNT_ADDED_BEFORE = 'customer_family_price.AMOUNT_ADDED_BEFORE';
+    const AMOUNT_ADDED_BEFORE = 'customer_family_code.AMOUNT_ADDED_BEFORE';
 
     /**
      * the column name for the AMOUNT_ADDED_AFTER field
      */
-    const AMOUNT_ADDED_AFTER = 'customer_family_price.AMOUNT_ADDED_AFTER';
+    const AMOUNT_ADDED_AFTER = 'customer_family_code.AMOUNT_ADDED_AFTER';
 
     /**
      * the column name for the MULTIPLICATION_COEFFICIENT field
      */
-    const MULTIPLICATION_COEFFICIENT = 'customer_family_price.MULTIPLICATION_COEFFICIENT';
+    const MULTIPLICATION_COEFFICIENT = 'customer_family_code.MULTIPLICATION_COEFFICIENT';
 
     /**
-     * the column name for the IS_TAXED field
+     * the column name for the SHIPPING_OFFERED field
      */
-    const IS_TAXED = 'customer_family_price.IS_TAXED';
+    const SHIPPING_OFFERED = 'customer_family_code.SHIPPING_OFFERED';
+
 
     /**
      * The default string format for model objects of the related table
@@ -117,11 +118,11 @@ class CustomerFamilyPriceTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('CustomerFamilyId', 'Promo', 'UseEquation', 'AmountAddedBefore', 'AmountAddedAfter', 'MultiplicationCoefficient', 'IsTaxed', ),
-        self::TYPE_STUDLYPHPNAME => array('customerFamilyId', 'promo', 'useEquation', 'amountAddedBefore', 'amountAddedAfter', 'multiplicationCoefficient', 'isTaxed', ),
-        self::TYPE_COLNAME       => array(CustomerFamilyPriceTableMap::CUSTOMER_FAMILY_ID, CustomerFamilyPriceTableMap::PROMO, CustomerFamilyPriceTableMap::USE_EQUATION, CustomerFamilyPriceTableMap::AMOUNT_ADDED_BEFORE, CustomerFamilyPriceTableMap::AMOUNT_ADDED_AFTER, CustomerFamilyPriceTableMap::MULTIPLICATION_COEFFICIENT, CustomerFamilyPriceTableMap::IS_TAXED, ),
-        self::TYPE_RAW_COLNAME   => array('CUSTOMER_FAMILY_ID', 'PROMO', 'USE_EQUATION', 'AMOUNT_ADDED_BEFORE', 'AMOUNT_ADDED_AFTER', 'MULTIPLICATION_COEFFICIENT', 'IS_TAXED', ),
-        self::TYPE_FIELDNAME     => array('customer_family_id', 'promo', 'use_equation', 'amount_added_before', 'amount_added_after', 'multiplication_coefficient', 'is_taxed', ),
+        self::TYPE_PHPNAME       => array('CustomerFamilyId', 'PromoCode', 'UseEquationProductSelling', 'AmountAddedBefore', 'AmountAddedAfter', 'MultiplicationCoefficient', 'ShippingOffered', ),
+        self::TYPE_STUDLYPHPNAME => array('customerFamilyId', 'promoCode', 'useEquationProductSelling', 'amountAddedBefore', 'amountAddedAfter', 'multiplicationCoefficient', 'ShippingOffered', ),
+        self::TYPE_COLNAME       => array(CustomerFamilyCodeTableMap::CUSTOMER_FAMILY_ID, CustomerFamilyCodeTableMap::PROMO_CODE, CustomerFamilyCodeTableMap::USE_EQUATION_PRODUCT_SELLING, CustomerFamilyCodeTableMap::AMOUNT_ADDED_BEFORE, CustomerFamilyCodeTableMap::AMOUNT_ADDED_AFTER, CustomerFamilyCodeTableMap::MULTIPLICATION_COEFFICIENT, CustomerFamilyCodeTableMap::SHIPPING_OFFERED, ),
+        self::TYPE_RAW_COLNAME   => array('CUSTOMER_FAMILY_ID', 'PROMO_CODE', 'USE_EQUATION_PRODUCT_SELLING', 'AMOUNT_ADDED_BEFORE', 'AMOUNT_ADDED_AFTER', 'MULTIPLICATION_COEFFICIENT', 'SHIPPING_OFFERED', ),
+        self::TYPE_FIELDNAME     => array('customer_family_id', 'promo_code', 'use_equation_product_selling', 'amount_added_before', 'amount_added_after', 'multiplication_coefficient', 'shipping_offered', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, )
     );
 
@@ -132,11 +133,11 @@ class CustomerFamilyPriceTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('CustomerFamilyId' => 0, 'Promo' => 1, 'UseEquation' => 2, 'AmountAddedBefore' => 3, 'AmountAddedAfter' => 4, 'MultiplicationCoefficient' => 5, 'IsTaxed' => 6, ),
-        self::TYPE_STUDLYPHPNAME => array('customerFamilyId' => 0, 'promo' => 1, 'useEquation' => 2, 'amountAddedBefore' => 3, 'amountAddedAfter' => 4, 'multiplicationCoefficient' => 5, 'isTaxed' => 6, ),
-        self::TYPE_COLNAME       => array(CustomerFamilyPriceTableMap::CUSTOMER_FAMILY_ID => 0, CustomerFamilyPriceTableMap::PROMO => 1, CustomerFamilyPriceTableMap::USE_EQUATION => 2, CustomerFamilyPriceTableMap::AMOUNT_ADDED_BEFORE => 3, CustomerFamilyPriceTableMap::AMOUNT_ADDED_AFTER => 4, CustomerFamilyPriceTableMap::MULTIPLICATION_COEFFICIENT => 5, CustomerFamilyPriceTableMap::IS_TAXED => 6, ),
-        self::TYPE_RAW_COLNAME   => array('CUSTOMER_FAMILY_ID' => 0, 'PROMO' => 1, 'USE_EQUATION' => 2, 'AMOUNT_ADDED_BEFORE' => 3, 'AMOUNT_ADDED_AFTER' => 4, 'MULTIPLICATION_COEFFICIENT' => 5, 'IS_TAXED' => 6, ),
-        self::TYPE_FIELDNAME     => array('customer_family_id' => 0, 'promo' => 1, 'use_equation' => 2, 'amount_added_before' => 3, 'amount_added_after' => 4, 'multiplication_coefficient' => 5, 'is_taxed' => 6, ),
+        self::TYPE_PHPNAME       => array('CustomerFamilyId', 'PromoCode', 'UseEquationProductSelling', 'AmountAddedBefore', 'AmountAddedAfter', 'MultiplicationCoefficient', 'ShippingOffered', ),
+        self::TYPE_STUDLYPHPNAME => array('customerFamilyId', 'promoCode', 'useEquationProductSelling', 'amountAddedBefore', 'amountAddedAfter', 'multiplicationCoefficient', 'ShippingOffered', ),
+        self::TYPE_COLNAME       => array(CustomerFamilyCodeTableMap::CUSTOMER_FAMILY_ID, CustomerFamilyCodeTableMap::PROMO_CODE, CustomerFamilyCodeTableMap::USE_EQUATION_PRODUCT_SELLING, CustomerFamilyCodeTableMap::AMOUNT_ADDED_BEFORE, CustomerFamilyCodeTableMap::AMOUNT_ADDED_AFTER, CustomerFamilyCodeTableMap::MULTIPLICATION_COEFFICIENT, CustomerFamilyCodeTableMap::SHIPPING_OFFERED, ),
+        self::TYPE_RAW_COLNAME   => array('CUSTOMER_FAMILY_ID', 'PROMO_CODE', 'USE_EQUATION_PRODUCT_SELLING', 'AMOUNT_ADDED_BEFORE', 'AMOUNT_ADDED_AFTER', 'MULTIPLICATION_COEFFICIENT', 'SHIPPING_OFFERED', ),
+        self::TYPE_FIELDNAME     => array('customer_family_id', 'promo_code', 'use_equation_product_selling', 'amount_added_before', 'amount_added_after', 'multiplication_coefficient', 'shipping_offered', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, )
     );
 
@@ -150,19 +151,19 @@ class CustomerFamilyPriceTableMap extends TableMap
     public function initialize()
     {
         // attributes
-        $this->setName('customer_family_price');
-        $this->setPhpName('CustomerFamilyPrice');
-        $this->setClassName('\\CustomerFamily\\Model\\CustomerFamilyPrice');
+        $this->setName('customer_family_code');
+        $this->setPhpName('CustomerFamilyCode');
+        $this->setClassName('\\CustomerFamily\\Model\\CustomerFamilyCode');
         $this->setPackage('CustomerFamily.Model');
         $this->setUseIdGenerator(false);
         // columns
         $this->addForeignPrimaryKey('CUSTOMER_FAMILY_ID', 'CustomerFamilyId', 'INTEGER' , 'customer_family', 'ID', true, null, null);
-        $this->addPrimaryKey('PROMO', 'Promo', 'TINYINT', true, null, 0);
-        $this->addColumn('USE_EQUATION', 'UseEquation', 'TINYINT', true, null, 0);
+        $this->addPrimaryKey('PROMO_CODE', 'PromCode', 'TINYINT', true, null, 0);
+        $this->addColumn('USE_EQUATION_PRODUCT_SELLING', 'UseEquationProductSelling', 'TINYINT', true, null, 0);
         $this->addColumn('AMOUNT_ADDED_BEFORE', 'AmountAddedBefore', 'DECIMAL', false, 16, 0);
         $this->addColumn('AMOUNT_ADDED_AFTER', 'AmountAddedAfter', 'DECIMAL', false, 16, 0);
         $this->addColumn('MULTIPLICATION_COEFFICIENT', 'MultiplicationCoefficient', 'DECIMAL', false, 16, 1);
-        $this->addColumn('IS_TAXED', 'IsTaxed', 'TINYINT', true, null, 1);
+        $this->addColumn('SHIPPING_OFFERED', 'ShippingOffered', 'TINYINT', true, null, 1);
     } // initialize()
 
     /**
@@ -181,14 +182,14 @@ class CustomerFamilyPriceTableMap extends TableMap
      * to the cache in order to ensure that the same objects are always returned by find*()
      * and findPk*() calls.
      *
-     * @param \CustomerFamily\Model\CustomerFamilyPrice $obj A \CustomerFamily\Model\CustomerFamilyPrice object.
+     * @param \CustomerFamily\Model\CustomerFamilyCode $obj A \CustomerFamily\Model\CustomerFamilyCode object.
      * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
      */
     public static function addInstanceToPool($obj, $key = null)
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
-                $key = serialize(array((string) $obj->getCustomerFamilyId(), (string) $obj->getPromo()));
+                $key = serialize(array((string) $obj->getCustomerFamilyId(), (string) $obj->getPromoCode()));
             } // if key === null
             self::$instances[$key] = $obj;
         }
@@ -207,8 +208,8 @@ class CustomerFamilyPriceTableMap extends TableMap
     public static function removeInstanceFromPool($value)
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
-            if (is_object($value) && $value instanceof \CustomerFamily\Model\CustomerFamilyPrice) {
-                $key = serialize(array((string) $value->getCustomerFamilyId(), (string) $value->getPromo()));
+            if (is_object($value) && $value instanceof \CustomerFamily\Model\CustomerFamilyCode) {
+                $key = serialize(array((string) $value->getCustomerFamilyId(), (string) $value->getPromoCode()));
 
             } elseif (is_array($value) && count($value) === 2) {
                 // assume we've been passed a primary key";
@@ -218,7 +219,7 @@ class CustomerFamilyPriceTableMap extends TableMap
 
                 return;
             } else {
-                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \CustomerFamily\Model\CustomerFamilyPrice object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
+                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \CustomerFamily\Model\CustomerFamilyCode object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
                 throw $e;
             }
 
@@ -262,7 +263,7 @@ class CustomerFamilyPriceTableMap extends TableMap
     public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
 
-            return $pks;
+        return $pks;
     }
 
     /**
@@ -278,7 +279,7 @@ class CustomerFamilyPriceTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? CustomerFamilyPriceTableMap::CLASS_DEFAULT : CustomerFamilyPriceTableMap::OM_CLASS;
+        return $withPrefix ? CustomerFamilyCodeTableMap::CLASS_DEFAULT : CustomerFamilyCodeTableMap::OM_CLASS;
     }
 
     /**
@@ -287,7 +288,7 @@ class CustomerFamilyPriceTableMap extends TableMap
      * @param array  $row       row returned by DataFetcher->fetch().
      * @param int    $offset    The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
-                                 One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_STUDLYPHPNAME
+    One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_STUDLYPHPNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
      * @throws PropelException Any exceptions caught during processing will be
@@ -296,17 +297,17 @@ class CustomerFamilyPriceTableMap extends TableMap
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = CustomerFamilyPriceTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = CustomerFamilyPriceTableMap::getInstanceFromPool($key))) {
+        $key = CustomerFamilyCodeTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = CustomerFamilyCodeeTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + CustomerFamilyPriceTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + CustomerFamilyCodeTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = CustomerFamilyPriceTableMap::OM_CLASS;
+            $cls = CustomerFamilyCodeTableMap::OM_CLASS;
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            CustomerFamilyPriceTableMap::addInstanceToPool($obj, $key);
+            CustomerFamilyCodeTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -329,8 +330,8 @@ class CustomerFamilyPriceTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = CustomerFamilyPriceTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = CustomerFamilyPriceTableMap::getInstanceFromPool($key))) {
+            $key = CustomerFamilyCodeTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = CustomerFamilyCodeTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
@@ -339,7 +340,7 @@ class CustomerFamilyPriceTableMap extends TableMap
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                CustomerFamilyPriceTableMap::addInstanceToPool($obj, $key);
+                CustomerFamilyCodeTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -361,20 +362,20 @@ class CustomerFamilyPriceTableMap extends TableMap
     {
         if (null === $alias) {
             $criteria->addSelectColumn(CustomerFamilyPriceTableMap::CUSTOMER_FAMILY_ID);
-            $criteria->addSelectColumn(CustomerFamilyPriceTableMap::PROMO);
-            $criteria->addSelectColumn(CustomerFamilyPriceTableMap::USE_EQUATION);
+            $criteria->addSelectColumn(CustomerFamilyPriceTableMap::PROMO_CODE);
+            $criteria->addSelectColumn(CustomerFamilyPriceTableMap::USE_EQUATION_PRODUCT_SELLING);
             $criteria->addSelectColumn(CustomerFamilyPriceTableMap::AMOUNT_ADDED_BEFORE);
             $criteria->addSelectColumn(CustomerFamilyPriceTableMap::AMOUNT_ADDED_AFTER);
             $criteria->addSelectColumn(CustomerFamilyPriceTableMap::MULTIPLICATION_COEFFICIENT);
-            $criteria->addSelectColumn(CustomerFamilyPriceTableMap::IS_TAXED);
+            $criteria->addSelectColumn(CustomerFamilyPriceTableMap::SHIPPING_OFFERED);
         } else {
             $criteria->addSelectColumn($alias . '.CUSTOMER_FAMILY_ID');
-            $criteria->addSelectColumn($alias . '.PROMO');
-            $criteria->addSelectColumn($alias . '.USE_EQUATION');
+            $criteria->addSelectColumn($alias . '.PROMO_CODE');
+            $criteria->addSelectColumn($alias . '.USE_EQUATION_PRODUCT_SELLING');
             $criteria->addSelectColumn($alias . '.AMOUNT_ADDED_BEFORE');
             $criteria->addSelectColumn($alias . '.AMOUNT_ADDED_AFTER');
             $criteria->addSelectColumn($alias . '.MULTIPLICATION_COEFFICIENT');
-            $criteria->addSelectColumn($alias . '.IS_TAXED');
+            $criteria->addSelectColumn($alias . '.SHIPPING_OFFERED');
         }
     }
 
@@ -387,7 +388,7 @@ class CustomerFamilyPriceTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(CustomerFamilyPriceTableMap::DATABASE_NAME)->getTable(CustomerFamilyPriceTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(CustomerFamilyCodeTableMap::DATABASE_NAME)->getTable(CustomerFamilyCodeTableMap::TABLE_NAME);
     }
 
     /**
@@ -395,14 +396,14 @@ class CustomerFamilyPriceTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-      $dbMap = Propel::getServiceContainer()->getDatabaseMap(CustomerFamilyPriceTableMap::DATABASE_NAME);
-      if (!$dbMap->hasTable(CustomerFamilyPriceTableMap::TABLE_NAME)) {
-        $dbMap->addTableObject(new CustomerFamilyPriceTableMap());
-      }
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(CustomerFamilyCodeTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(CustomerFamilyCodeTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new CustomerFamilyCodeTableMap());
+        }
     }
 
     /**
-     * Performs a DELETE on the database, given a CustomerFamilyPrice or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a CustomerFamilyCode or Criteria object OR a primary key value.
      *
      * @param mixed               $values Criteria or CustomerFamilyPrice object or primary key or array of primary keys
      *              which is used to create the DELETE statement
@@ -412,20 +413,20 @@ class CustomerFamilyPriceTableMap extends TableMap
      * @throws PropelException Any exceptions caught during processing will be
      *         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
-     {
+    public static function doDelete($values, ConnectionInterface $con = null)
+    {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerFamilyPriceTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(CustomerFamilyCodeTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \CustomerFamily\Model\CustomerFamilyPrice) { // it's a model object
+        } elseif ($values instanceof \CustomerFamily\Model\CustomerFamilyCpde) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(CustomerFamilyPriceTableMap::DATABASE_NAME);
+            $criteria = new Criteria(CustomerFamilyCodeTableMap::DATABASE_NAME);
             // primary key is composite; we therefore, expect
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
@@ -433,17 +434,17 @@ class CustomerFamilyPriceTableMap extends TableMap
                 $values = array($values);
             }
             foreach ($values as $value) {
-                $criterion = $criteria->getNewCriterion(CustomerFamilyPriceTableMap::CUSTOMER_FAMILY_ID, $value[0]);
-                $criterion->addAnd($criteria->getNewCriterion(CustomerFamilyPriceTableMap::PROMO, $value[1]));
+                $criterion = $criteria->getNewCriterion(CustomerFamilyCodeTableMap::CUSTOMER_FAMILY_ID, $value[0]);
+                $criterion->addAnd($criteria->getNewCriterion(CustomerFamilyCodeTableMap::PROMO_CODE, $value[1]));
                 $criteria->addOr($criterion);
             }
         }
 
         $query = CustomerFamilyPriceQuery::create()->mergeWith($criteria);
 
-        if ($values instanceof Criteria) { CustomerFamilyPriceTableMap::clearInstancePool();
+        if ($values instanceof Criteria) { CustomerFamilyCodeTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
-            foreach ((array) $values as $singleval) { CustomerFamilyPriceTableMap::removeInstanceFromPool($singleval);
+            foreach ((array) $values as $singleval) { CustomerFamilyCodeTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -451,20 +452,20 @@ class CustomerFamilyPriceTableMap extends TableMap
     }
 
     /**
-     * Deletes all rows from the customer_family_price table.
+     * Deletes all rows from the customer_family_code table.
      *
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return CustomerFamilyPriceQuery::create()->doDeleteAll($con);
+        return CustomerFamilyCodeQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a CustomerFamilyPrice or Criteria object.
+     * Performs an INSERT on the database, given a CustomerFamilyCode or Criteria object.
      *
-     * @param mixed               $criteria Criteria or CustomerFamilyPrice object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or CustomerFamilyCode object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -473,7 +474,7 @@ class CustomerFamilyPriceTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerFamilyPriceTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(CustomerFamilyCodeTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
@@ -484,7 +485,7 @@ class CustomerFamilyPriceTableMap extends TableMap
 
 
         // Set the correct dbName
-        $query = CustomerFamilyPriceQuery::create()->mergeWith($criteria);
+        $query = CustomerFamilyCodeQuery::create()->mergeWith($criteria);
 
         try {
             // use transaction because $criteria could contain info
@@ -503,4 +504,4 @@ class CustomerFamilyPriceTableMap extends TableMap
 } // CustomerFamilyPriceTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-CustomerFamilyPriceTableMap::buildTableMap();
+CustomerFamilyCodeTableMap::buildTableMap();

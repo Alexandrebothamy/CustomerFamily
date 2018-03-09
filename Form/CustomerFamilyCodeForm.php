@@ -7,7 +7,6 @@ use Thelia\Form\BaseForm;
 /**
  * Class CustomerFamilyCodeForm
  * @package CustomerFamily\Form
- * @author Alexandre BOTHAMY
  */
 class CustomerFamilyCodeForm extends BaseForm
 {
@@ -24,10 +23,9 @@ class CustomerFamilyCodeForm extends BaseForm
                 'integer'
             )
             ->add(
-                'promo_code',
+                'promo_promo',
                 'integer'
             )
-
             ->add(
                 'use_equation_product_selling',
                 'checkbox',

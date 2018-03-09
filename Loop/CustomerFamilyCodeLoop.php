@@ -14,7 +14,6 @@ use Thelia\Core\Template\Loop\Argument\ArgumentCollection;
 /**
  * Class CustomerFamilyCodeLoop
  * @package CustomerFamily\Loop
- * @author  Alexandre BOTHAMY
  */
 class CustomerFamilyPriceLoop extends BaseLoop implements PropelSearchLoopInterface
 {
